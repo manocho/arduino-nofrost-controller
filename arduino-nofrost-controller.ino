@@ -111,7 +111,9 @@ void getTemperature(){
 void setup() {
   Serial.begin(9600);
   pinMode(relayPin, OUTPUT);
-  digitalWrite(relayPin, HIGH); // Inicialmente, enciende el relé
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(relayPin, HIGH); // The relay starts OFF (LOW triggers the relay)
+  digitalWrite(ledPin, LOW); // The No-Frost LED starts OFF
   button.setDebounceTime(50); // set debounce time to 50 milliseconds
   sensors.setResolution(9);  // Resolution set to 9 bits (70ms speed)
   sensors.begin();   // Temperature sensors initiated
